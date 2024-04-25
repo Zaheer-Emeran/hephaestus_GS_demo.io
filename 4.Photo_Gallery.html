@@ -1,0 +1,1013 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Photo Gallery</title>
+  <link rel="stylesheet" href="Style.css">
+
+  <link rel="shortcut icon" type="image/png" href="Images/Tab_Icon.png" />
+  <style>
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      width: auto;
+      color: white;
+      font-weight: bold;
+      font-size: 2vw;
+      transition: 0.6s ease;
+      border-radius: 1vw 1vw 1vw 1vw;
+      background-color: teal;
+      user-select: none;
+      padding: 1.5vw;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      border-radius: 1vw 1vw 1vw 1vw;
+      margin-left: 40vw;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: cornsilk;
+      font-size: 2vw;
+      padding: .8vw 1.2vw;
+      text-shadow: .15vw 0vw .35vw cornsilk;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /*Flip Cards start*/
+
+    .flip-card {
+      background-color: transparent;
+      width: 30vw;
+      height: 40vw;
+    }
+
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0vw .4vw .8vw 0vw rgba(0, 0, 0, 0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+    }
+
+    .flip-card-back {
+      background-color: teal;
+      color: white;
+      transform: rotateY(180deg);
+    }
+
+    /*Flip Card End*/
+
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      width: 80%;
+      box-shadow: 0 .8vw .8vw 0 rgba(0, 0, 0, 0.2), 0 .6vw 2vw 0 rgba(0, 0, 0, 0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+      from {
+        top: -30vw;
+        opacity: 0
+      }
+
+      to {
+        top: 0;
+        opacity: 1
+      }
+    }
+
+    @keyframes animatetop {
+      from {
+        top: -30vw;
+        opacity: 0
+      }
+
+      to {
+        top: 0;
+        opacity: 1
+      }
+    }
+
+    /* The Close Button */
+    .close {
+      color: cornsilk;
+      float: right;
+      font-size: 1vw;
+      padding: .5vw;
+      font-weight: bold;
+      background-color: hsla(0, 0%, 20%, 1.00);
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      background-color: darkred;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+      color: white;
+      background-color: #2A2A2A;
+      margin-bottom: 2.1vw;
+      padding-bottom: .1vw;
+      text-align: center;
+    }
+
+    .modal-body {
+      background-color: #393939;
+    }
+
+    .modal-footer {
+      color: white;
+      padding-left: 31.5vw;
+      background-color: #2A2A2A;
+      padding: 1.8vw;
+      text-align: center;
+    }
+
+    .released_Games {
+      background-color: hsla(0, 0%, 0%, 0.00);
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      width: 28vw;
+      height: 48vw;
+      transition-duration: 0.4s;
+      padding: .2vw;
+    }
+
+    .released_Games:hover {
+      background-color: hsla(0, 0%, 73%, 0.46);
+    }
+
+    .modal-header h2 {
+      padding-top: 1vw;
+    }
+
+    .modal_Description {
+      background-color: #393939;
+      padding-top: 2vw;
+      width: 50vw;
+      float: right;
+      padding-right: 2vw;
+    }
+
+    .modal_Image {
+      width: 23vw;
+      height: 35vw;
+      margin-top: -2.1vw;
+    }
+  </style>
+
+</head>
+
+
+<body>
+  <header>
+    <nav>
+      <a class="active" href="1.Home_Page.html">
+        <video autoplay muted loop style=" 
+		height:10vw;
+		width: 56vw;								  
+        margin-left: 20vw;">
+          <source src="Images/header.animated.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </a>
+      <div class="topnav">
+        <a href="1.Home_Page.html">Home</a>
+        <a href="2.About_Us.html">About Us</a>
+        <a href="3.Our_Work.html">Our Work</a>
+        <a class="active" href="4.Photo_Gallery.html">Photo Gallery</a>
+        <a href="5.Get_Involved.html">Get Involved</a>
+        <a href="6.Contact_Us.html">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- The Alliance Content-->
+    <div style="width: auto;
+					height: 65vw;
+					padding-top: .1vw;
+					background-color: rgba(34,34,34,1.00);
+					text-align: center;">
+      <h1>
+        <i><strong>
+            The Alliance
+          </strong></i>
+      </h1>
+
+
+      <div style="width: 30vw; 
+			height: auto;
+			padding-bottom: 4vw;
+			background-color: rgba(38,38,38,1.00);
+			margin-left: 35.5vw;">
+
+        <div class="mySlides fade">
+          <div class="numbertext">
+            1 / 8
+          </div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Referenced_Images/Home_Page_Image.2.jpeg" alt="Avatar">
+              </div>
+              <div class="flip-card-back">
+                <h1>Zaheer Emeran</h1>
+                <h3>Senior 3D Artist and Founder</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Keagan_Mabika.jpg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Keagan Mabika</h1>
+                <p>Co-Code and Mechanics Creator</p>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Caleb_Osman.2.jpg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Caleb Osman</h1>
+                <h3>Co-Code and Mechanics Creator</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">4 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Tarryn_Wallie.jpg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Tarryn Wallie</h1>
+                <h3>Co-Marketing Expert</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">5 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Tiffany_Pietersen.jpg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Tiffany Pietersen</h1>
+                <h3>Co-Marketing Expert</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">6 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Alex_Almacin.jpeg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Alex Almacin</h1>
+                <h3>Level Designer and Game Tester</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">7 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Amaal_Solomon.jpeg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Amaal Solomon</h1>
+                <h3>Architectural Engineer</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">8 / 8</div>
+          <!--Start Content for the flipcard-->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="Images/Team_Members/Michael_Mwangonde.jpeg">
+              </div>
+              <div class="flip-card-back">
+                <h1>Michael Mwangonde</h1>
+                <h3>Sound Engineer</h3>
+              </div>
+            </div>
+          </div>
+          <!--End Content for the flipcard-->
+        </div>
+
+
+      </div>
+
+      <div style="height: 10vw;
+			width:auto;
+			margin-top: -30vw;
+			padding-top: 5vw;
+			padding-left: 1.5vw;
+			">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+
+      <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = slides.length }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " active";
+        }
+      </script>
+    </div>
+
+    <div style="width: auto; 
+					height: auto; 
+					background-color: rgba(38,38,38,1.00);
+					padding-top: 5vw;
+					padding-bottom: 5vw;">
+
+      <div style="width: 40vw; 
+						height: 30vw; 
+						float: right;
+						margin-top: 0vw;
+						margin-right: 10vw;">
+
+        <video width="100%" height="100%" controls>
+          <source src="Images/HGS_Preview_Video.mp4" type="video/mp4" style="">
+          <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div style="width: 30vw; 
+						height: auto; 
+						padding-bottom: 1vw;
+						margin-left: 15vw; 
+						text-align: center;
+						margin-top: 4vw;">
+        <h2>The Forge's Creations</h2>
+        <p class="constant_Font">
+
+
+          Here at Hephaestus' Games Studio, we pride
+          <br>
+          ourselves on making as many games as possible
+          <br>
+          with the lowet amount of time while still
+          <br>
+          maintaining the highest quality graphics,
+          <br>
+          sound design and gaming experience.
+          <br>
+          <br>
+          Over the course of five years, we are proud
+          <br>
+          to display six popular games which we created,
+          <br>
+          as well as three additional games which were
+          <br>
+          created by schools through our CSR programmes.
+          <br>
+          <br>
+          The video on the right is the official Hephaestus’
+          <br>
+          Games Studio's opening video which trademarks any
+          <br>
+          games which we release.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Top Released Games Container -->
+    <div style="padding-top: .5vw;
+					width: auto; 
+					height: auto; 
+					background-color: rgba(42,42,42,1.00);
+					text-align: center;">
+      <h1>Top Released Games</h1>
+
+      <div style="float: right; margin-right: 3vw">
+        <button id="game.Divines_Landing" class="released_Games">
+          <img src="Images/Photo_Gallery/Divine's_Landing.final.png">
+        </button>
+      </div>
+
+      <div style="float: right; margin-right: 4vw;">
+        <button id="game.On_Edge" class="released_Games">
+          <img src="Images/Photo_Gallery/On_Edge.final.png">
+        </button>
+      </div>
+
+      <div style="margin-left: -1vw;">
+        <button id="game.Thirteenth_Sun" class="released_Games">
+          <img src="Images/Photo_Gallery/Thirteenth_Sun.final.png">
+        </button>
+      </div>
+
+      <div style="margin-top: 3vw;">
+
+        <div style="float: right; margin-right: 3vw">
+          <button id="game.Down_Below" class="released_Games">
+            <img src="Images/Photo_Gallery/Down_Below.final.png">
+          </button>
+        </div>
+
+        <div style="float: right; margin-right: 4vw;">
+          <button id="game.The_Hero's_Return" class="released_Games">
+            <img src="Images/Photo_Gallery/The_Hero's_Return.final.png">
+          </button>
+        </div>
+
+        <div style="margin-left: -1vw;">
+          <button id="game.Frozen_Honour" class="released_Games">
+            <img src="Images/Photo_Gallery/Frozen_Honour.final.png">
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div id="Divines_Landing.content" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="close_Window1" class="close">x</button>
+
+          <h2>Divines Landing</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal_Description">
+            <p class="constant_Font">
+              After Ragnorok occured, an event that caused the end of the worlds of Gods and Men, a handful the two
+              beings found sanctuary at a place between time and space, a place where the effects of Ragnorok had not
+              tainted, a place where they could start their new beginnings, a place that they could call 'Home'. This
+              was given the name <strong>'Divine's Landing'</strong>
+              <br>
+              <br>
+              However, Divine's Landing wasn't the only place which escaped the effects of Ragnorok, nor were their
+              residents the only beings left alive. On a place given the nickname 'The Nether', resided the Japanese God
+              of Destruction, 'Yato', with his hoarde of followers.
+              <br>
+              <br>
+              Yato's only goal? Destroy and Enslave every living being in the universe so that he can rule over all of
+              creation with an Iron Fist. Its up to the Residants of Divine's Landing, along with the God Hephaestus and
+              Goddess Artimes, to protect themselves from Yato's evil reigns.
+              <br>
+              <br>
+              It's up to you, the product of the two famous Greek Gods, to build up the defences of Divine's Landing and
+              fend of the Rule of Yato before it becomes too late.
+
+
+            </p>
+          </div>
+
+          <div class="modal_Image">
+            <img src="Images/Photo_Gallery/Divine's_Landing.png">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h2></h2>
+        </div>
+      </div>
+    </div>
+
+    <div id="On_Edge.content" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="close_Window2" class="close">x</button>
+          <h2>On Edge</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal_Description">
+            <p class="constant_Font">
+              In the year 2035, the City of Liyue is filled with technology which is far superior than anything the
+              world has ever experienced before, where Mobile Transport such as Cars has become irrelevant. However, you
+              can take mankind out of the Car, but you cannot take the Car out of mankind.
+              <br>
+              <br>
+              Driving a car, let alone street racing, has become illegal in the City of Liyue, but that won't stop
+              <strong>The Underground</strong> from doing as they please. The Underground, a well known community of
+              Misfits, Bandits and Outlaws, is where Kennith Brown finds himself one day. After losing it all to the
+              rich at a young age, he is taken in by the Leader of The Underground, Rick Mort, and is taught the ins and
+              out of how to run the economy.
+              <br>
+              <br>
+              Their goal? Bring down the government by any means necassary. Through hard work and dedication, Kenneth
+              made his way to the top, and after the tragic death which befell Rick, Kennith became the Leader of the
+              Underground.
+              <br>
+              <br>
+              He finds himself stuck in a conflicting story of Family, Romance and Leadership, Kennith finds it
+              extremely difficult to find a balance between it all. Will he be able to overthrow the Government and keep
+              the people he cares about safe? Or will he cause the City of Liyue to fall?
+
+            </p>
+          </div>
+
+          <div class="modal_Image">
+            <img src="Images/Photo_Gallery/On_Edge.png">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="Thirteenth_Sun.content" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="close_Window3" class="close">x</button>
+          <h2>Thirteenth Sun</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal_Description">
+            <p class="constant_Font">
+              "It was peaceful, before it all happened. Our ancestors lived peaceful, normal lives, tending to cattle,
+              growing crops, excluded from the outside world. But suddenly, during the midst of a Blood Moon, the
+              <strong>First Sun</strong> Appeared, And with it came unthinkable tradgedies."
+              <br>
+              <br>
+              "Approximately 20% of all living creatures, be it Human, Plant or Animal, began mutating which birthed
+              what we refer to today as unconcious Chimeras. Our Ancestors, those who had survived, had to pool together
+              all their resources, and faced off the Original Chimera and brought peace to their village. However,
+              before the first Sun had time to become legend, a decade later the <strong>Second Sun</strong> appeared,
+              and with it, even more horrible mutations.
+              <br>
+              <br>
+
+              "Although when the Sixth Sun appeared, a small margin of villagers discovered that they could wield the
+              power of the mutations while retaining their conciousness, and thus, the League of Hero's was formed.
+              After each decade, a Sun appeared, and a tournament was held amoungst the Hero's to determine who would
+              fight in the war against the Chimera."
+              <br>
+              <br>
+
+              "Things started taking a great turn for the village, until the Village Elder had a vision. 'When the
+              Thirteenth Sun appears on the horizon, choas will befall all of humanity'. As such, four unlikely Hero's
+              were chosen amongst the batch of Hero's, each with their own Skills."
+              <br>
+              <br>
+              "Each with their own Motive."
+
+
+            </p>
+          </div>
+
+          <div class="modal_Image">
+            <img src="Images/Photo_Gallery/Thirteenth_Sun.png">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="Down_Below.content" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="close_Window4" class="close">x</button>
+          <h2>Down Below</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal_Description">
+            <p class="constant_Font">
+              The realm of Atlantis, a mystical and magical place once filled with prospering residence who had an
+              abundance of gold and jewels, now reduced to nothing but a Lost City under the ocean with its reason to
+              have sunk remaining unknown.
+              <br>
+              <br>
+              However, when a group of youth stumbled across an artifact called the 'Sea Serpent's Heart' while scooba
+              diving, they decide to have it appraised, only to discover that it was an artifact which would lead them
+              to the legendary Lost City.
+              <br>
+              <br>
+              After recieving funding and gathering an experienced group of underwater archeologists, the young group
+              began their journey underneath the depths, where no man had ever journeyed, in search for the Lost City.
+              They had spent many, many weeks and thousands of dollars into the exploration of the Lost City, and after
+              long, they were ready.
+              <br>
+              <br>
+              Little did they know, that while the Sea Serpents' Heart lead them to the Lost City, it also lead the
+              Creatures of the Lost City, to them. Creatures ripened in darkness by the cruel fate known as time, cursed
+              to exist because of the everlasting magic which drowned with the city.
+              <br>
+              <br>
+              The group of youthful and irresponsible teenagers find themselves unable to return to the surface, unable
+              to call for help, unable to leave the Lost City.
+              <br>
+              <br>
+              Unable to escape, Down Below.
+
+
+
+
+            </p>
+          </div>
+
+          <div class="modal_Image">
+            <img src="Images/Photo_Gallery/Down_Below.png">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="The_Hero's_Return.content" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="close_Window5" class="close">x</button>
+          <h2>The Hero's Return</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal_Description">
+            <p class="constant_Font">
+              In a world where Technological beings from a distant planet became dominant, humans find themselves on the
+              brink of Extinction. These beings, given the name, 'the Precursors', have deduced that not only were
+              humans unfit to reside on the planet Earth, but that humans in general were obsolete. With no technology
+              inside, with limited knowledge and fragile bodies, the Precursors took it upon themselves to adopt
+              humanity as humans would a stray cat.
+              <br>
+              <br>
+              Naturally, though, Humans retaliated against the Precursors, angering their King who believed that they
+              were protecting humanity from themselves. And as such, a decree was given amongst the Precursors to
+              slaughter all humans who decided against the rule of the Precursors.
+              <br>
+              <br>
+              A century later, after the Precursors took over Earth with an brutal rule, a half-breed between the
+              Precursors and Humans emerged when a Precursor felt sorry for an orphaned baby and decided to give the
+              child Precursor knowledge.
+              <br>
+              <br>
+              The child, a young girl named Holly Mark, grew up to become a woman of drive and determination. She was a
+              natural born laeder, and lived a normal life until her 25th Birthday where the effects of the Precursors'
+              knowledge became apparent.
+              <br>
+              <br>
+              On the run from deranged Scientists trying to extract her gift as well as strict and lethal Precursors,
+              Holly finds herself struggling to decide whether she wants to become the Bridge between the two worlds, or
+              the catalyst which insights both of their destruction.
+
+
+
+
+            </p>
+          </div>
+
+          <div class="modal_Image">
+            <img src="Images/Photo_Gallery/The_Heros_Return.png">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="Frozen_Honour.content" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="close_Window6" class="close">x</button>
+          <h2>Frozen Honour</h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal_Description">
+            <p class="constant_Font">
+              In a world where Druids, Kings and Magical beasts such as Dragons co-exist, within the Forest called The
+              Grey Zone resides a group of secret beings called 'The Keys' who has the unique and rare ability to summon
+              creatures from a distant realm known as the 'Spirit Realm'. The Keys are able to use the elemental
+              abilities of their familiars which scales based on their level of Mana.
+              <br>
+              <br>
+              A young boy, Jason Foile, who was nothing more than a exiled peasant villager finds out that not only does
+              he have a powerful Familiar, but it is the Frozen King of all Familiars, 'Tenebrae'. While Jason was still
+              too young to learn how to control the elemental abilities of Tenebrae, he stumbled across the legendary
+              Mage Nicknamed 'Merlin'.
+              <br>
+              <br>
+              Merlin taught him how to control his powers and raised the boy to use his power for the benefit of
+              Humanity. Little did he know, Tenebrae had different plans.
+              <br>
+              <br>
+              While Jason wanted to help humanity, Tenebrae wanted to destroy it in order to save all of Magic Beasts
+              before Humans become the reason that they become extinct. Can Jason convince Tenebrae to help him save
+              Humanity, or while Tenebrae convince Jason to get rid of Humanity?
+
+
+
+            </p>
+          </div>
+
+          <div class="modal_Image">
+            <img src="Images/Photo_Gallery/Frozen_Honour.png">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <h3></h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Operation Young Minds Container -->
+    <div style="width: auto;
+					height: auto;
+					background-color: rgba(46,46,46,1.00);
+					text-align: center;
+					padding-top: .5vw;">
+      <h1>Operation: Young Minds</h1>
+
+      <!-- First Game Content -->
+      <div style="width: auto;
+						height: 50vw; 
+            ">
+        <img src="Images/Photo_Gallery/The_Reborn_Person.Final.png">
+      </div>
+
+      <!-- Second Game Content -->
+      <div style="width: auto;
+						height: 50vw;
+						background-color: rgba(50,50,50,1.00); 
+						padding-top: 1%;">
+        <img src="Images/Photo_Gallery/Thirst.Final.png">
+      </div>
+
+      <!-- Third Game Content -->
+      <div style="width: auto;
+						height: 50vw;
+						background-color: rgba(50,50,50,1.00); 
+						padding-top: 1%">
+        <img src="Images/Photo_Gallery/The_Eye_Of_Artemis.Final.png">
+      </div>
+    </div>
+
+
+
+    <script>
+      // Get the modal
+      var DL_modal = document.getElementById("Divines_Landing.content");
+      var OE_modal = document.getElementById("On_Edge.content");
+      var TS_modal = document.getElementById("Thirteenth_Sun.content");
+      var DB_modal = document.getElementById("Down_Below.content");
+      var THR_modal = document.getElementById("The_Hero's_Return.content");
+      var FH_modal = document.getElementById("Frozen_Honour.content");
+
+
+      // Get the button that opens the modal
+      var DL_control = document.getElementById("game.Divines_Landing");
+      var OE_control = document.getElementById("game.On_Edge");
+      var TS_control = document.getElementById("game.Thirteenth_Sun");
+      var DB_control = document.getElementById("game.Down_Below");
+      var THR_control = document.getElementById("game.The_Hero's_Return");
+      var FH_control = document.getElementById("game.Frozen_Honour");
+
+
+      // When the user clicks the button, open the modal 
+      DL_control.onclick = function () {
+        DL_modal.style.display = "block";
+      }
+
+      OE_control.onclick = function () {
+        OE_modal.style.display = "block";
+      }
+
+      TS_control.onclick = function () {
+        TS_modal.style.display = "block";
+      }
+      DB_control.onclick = function () {
+        DB_modal.style.display = "block";
+      }
+      THR_control.onclick = function () {
+        THR_modal.style.display = "block";
+      }
+      FH_control.onclick = function () {
+        FH_modal.style.display = "block";
+      }
+
+
+
+      // When the user clicks on <span> (x), close the modal
+      close_Window1.onclick = function () {
+        DL_modal.style.display = "none";
+      }
+
+      close_Window2.onclick = function () {
+        OE_modal.style.display = "none";
+      }
+
+      close_Window3.onclick = function () {
+        TS_modal.style.display = "none";
+      }
+
+      close_Window4.onclick = function () {
+        DB_modal.style.display = "none";
+      }
+
+      close_Window5.onclick = function () {
+        THR_modal.style.display = "none";
+      }
+
+      close_Window6.onclick = function () {
+        FH_modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == DL_modal) {
+          DL_modal.style.display = "none";
+        }
+
+        if (event.target == OE_modal) {
+          OE_modal.style.display = "none";
+        }
+
+        if (event.target == TS_modal) {
+          TS_modal.style.display = "none";
+        }
+        if (event.target == DB_modal) {
+          DB_modal.style.display = "none";
+        }
+        if (event.target == THR_modal) {
+          THR_modal.style.display = "none";
+        }
+        if (event.target == FH_modal) {
+          FH_modal.style.display = "none";
+        }
+      }
+    </script>
+  </main>
+
+  <footer>
+    <div class="copyright_Content">
+      <div class="constant_Font"> &copy; Copyright 2021 WebsiteHoster.com </div>
+      <button onClick="window.location.href='References_And_Links.docx';" class="button button1"> References </button>
+    </div>
+  </footer>
+</body>
+
+</html>

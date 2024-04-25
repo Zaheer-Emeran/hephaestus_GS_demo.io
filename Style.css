@@ -1,0 +1,273 @@
+body{
+  background-color: #181818;
+}
+header{
+width: auto;
+margin-left: -1vw;
+margin-right: -.5vw;
+}
+
+main{
+    width: auto;
+    margin-left: -1vw;
+    margin-right: -.5vw;
+}
+
+footer{
+  background-color:rgb(40, 40, 40);
+  color: cornsilk;
+  text-align: center;
+  height: auto;
+  width: auto;
+	padding-top: 5vw;
+  padding-bottom: 1vw;
+  margin-left: -1vw;	
+  margin-right: -1vw;
+	margin-bottom: -1vw;
+	
+}
+
+
+.constant_Font{
+  color: cornsilk;
+  font-size: 1.2vw;
+}
+
+
+/*Nav Bar*/
+.topnav {
+  overflow: hidden;
+  background-color: #1f1f1f;;
+  color: cornsilk;
+
+  padding-left: 20vw;
+}
+
+.topnav a {
+  float: left;
+  color: cornsilk;
+  text-align: center;
+  padding: 1vw 2vw;
+  text-decoration: none;
+  font-size: 1.3vw;
+  transition-duration: .7s;
+  text-shadow: .15vw 0px .35vw cornsilk;
+}
+
+.topnav a:hover {
+  background-color:cornsilk;
+  color: black;
+}
+
+.topnav a.active {
+  background-color:cornsilk;
+  color: black;
+}
+
+/*Form In Footer*/
+.form_Control{
+          width: 35vw; 
+	padding-top: 10vw;
+					height: 27vw; 
+					background-color:rgba(37,37,37,0.83);
+					padding: 1vw 3vw;
+					margin-right: 2vw;
+					float: right;
+          text-align: center;
+        	margin-bottom: 2vw;
+}
+
+.footer_Content_Control{
+        width: 40vw; 
+        height: 21vw;
+        background-color:rgba(37,37,37,0.83);
+        margin-left: 2vw;
+        padding-top: 8vw;
+}
+
+.copyright_Content{
+  width: auto;
+  height: 5vw;
+  background-color:rgba(37,37,37,0.83);
+  margin-top: 1vw;
+  padding-top: 2vw;
+	margin-top: 5vw;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: .5vw .1vw;
+  margin: .5vw 0;
+  display: inline-block;
+  border: .2vw solid #ccc;
+  border-radius: 1vw;
+  box-sizing: border-box;
+  
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color:teal;
+  color: white;
+  padding: 1vw 1vw;
+  margin: 1vw 0vw;
+  border: none;
+  border-radius: 15vw;
+  cursor: pointer;
+  font-size: 1vw;
+}
+
+input[type=submit]:hover {
+  background-color:rgba(0, 128, 128, 0.74);
+}
+
+::placeholder{
+  font-size: 1vw;
+}
+select{
+  font-size: 1vw;
+}
+
+h1{
+  text-shadow: .15vw 0px .35vw cornsilk;
+  font-size: 3.2vw;
+  color: cornsilk;
+}
+
+h2{
+  text-shadow: .15vw 0px .35vw cornsilk;
+  color: cornsilk;
+  font-size: 2.5vw;
+}
+
+h3{
+  text-shadow: .15vw 0px .35vw cornsilk;
+  color: cornsilk;
+  font-size: 2vw;
+}
+
+
+  /*Buttons*/
+
+  .button {
+    border: none;
+    color: cornsilk;
+    padding: 1vw 2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1vw;
+    margin: .5vw .5vw;
+    transition-duration: 0.9s;
+    cursor: pointer;
+  }
+  
+  
+  .button {
+    background-color:rgba(61,61,61,0.81); 
+    color: cornsilk; 
+    border: .1vw solid cornsilk;
+    text-shadow: .15vw 0px .35vw cornsilk; 
+  }
+  
+  .button:hover {
+    background-color: rgb(255, 248, 220);
+    color: black;
+  }
+  
+  .zoom {
+    transition: transform 1s;
+    margin: auto;
+    width: auto;
+    height: auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.05); /* Safari 3-8 */
+  }
+
+.provided_Content{
+	width: 15vw;
+	height: 20vw;
+}
+
+
+/*About Us Control*/
+.about_Us_Point{
+  height: 4vw;
+  width: 4vw;
+}
+
+
+/**/
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #383838a6;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.released_Games_Images{
+	width: 32vw;
+	height: 40vw;
+}
+img{
+	width: 100%;
+	height: 100%
+}
+
+/* Contact Us */
+.icons{
+	width: 10vw;
+	height: auto;
+	text-align: center;
+
+}
+
+.map-responsive{
+
+    overflow:hidden;
+
+    padding-bottom:56.25%;
+
+    position:relative;
+
+    height:0;
+
+}
+
+.map-responsive iframe{
+
+    left:0;
+
+    top:0;
+
+    height:100%;
+
+    width:100%;
+
+    position:absolute;
+
+}

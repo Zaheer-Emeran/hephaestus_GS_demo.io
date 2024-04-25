@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="Style.css ">
+  <link rel="shortcut icon" type="image/png" href="Images/Tab_Icon.png" />
+</head>
+
+<style>
+  .mySlides {
+    display: none
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    width: 60vw;
+    position: relative;
+    margin: auto;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 2.5vw;
+    width: 2.5vw;
+    margin-top: -5vw;
+    background-color: cornsilk;
+    border-radius: 100%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-top: -15vw;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #181818;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 30vw) {
+
+    .prev,
+    .next,
+    .text {
+      font-size: 1.1vw
+    }
+  }
+
+  .dropbtn {
+    background-color: hsla(0, 0%, 0%, 0.00);
+    color: cornsilk;
+    width: 16vw;
+    height: 14vw;
+    border: none;
+    font-size: 1.5vw;
+    border-radius: 1vw 1vw 1vw 1vw;
+    padding: 1vw;
+
+  }
+
+
+  .dropdown-content {
+    display: none;
+    background-color: black;
+    z-index: 1;
+    margin-left: .7vw;
+
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 2vw 5.25vw;
+    text-decoration: none;
+    display: block;
+
+  }
+
+  .dropdown-content a:hover {
+    background-color: black;
+
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+    border-radius: 1vw 1vw 1vw 1vw;
+    background-color: #1B1B1B;
+
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: rgb(1, 115, 102);
+
+  }
+
+  .provided_Courses {
+    background-color: #3E3E3E;
+    width: 14.2vw;
+    height: 20vw;
+    border-style: solid;
+    border-color: white;
+
+    border-radius: 1vw 1vw 1vw 1vw;
+
+  }
+
+  .timeline_Content {
+    background-color: rgb(36, 36, 36);
+    width: auto;
+    height: 10vw;
+    border-style: solid;
+    border-color: white;
+  }
+</style>
+
+<body>
+  <header>
+    <nav>
+      <a class="active" href="1.Home_Page.html">
+        <video autoplay muted loop style=" 
+        height:10vw;
+		width: 56vw;								  
+        margin-left: 20vw;
+										  ">
+          <source src="Images/header.animated.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </a>
+      <div class="topnav">
+        <a class="active" href="1.Home_Page.html">Home</a>
+        <a href="2.About_Us.html">About Us</a>
+        <a href="3.Our_Work.html">Our Work</a>
+        <a href="4.Photo_Gallery.html">Photo Gallery</a>
+        <a href="5.Get_Involved.html">Get Involved</a> <a href="6.Contact_Us.html">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+
+    <!-- Main Summary Container -->
+    <div style="height: 40vw;
+                    width: auto;
+                    background-image:url(Images/Background.T.1.png);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;">
+      <div style="height: 20vw; 
+						width: 60vw; 
+						margin-left: 19vw; 
+						padding-top: 5vw;
+						text-align: center;">
+        <h1> <i><strong>Forging The Future Of Gaming</strong></i> </h1>
+        <p class="constant_Font"> Hephaestus' Game Studio, the company who will take Game <br>
+          Development beyond the stars. We are a company who strives <br>
+          to provide the greatest gaming experience known to man <br>
+          in a convienient and affordable way possible. <br>
+        </p>
+      </div>
+    </div>
+
+    <!-- Home Page About Us Summary Container -->
+    <div style="width: auto; 
+                    height: 30vw; 
+                    background-color:rgba(40,40,40,0.78);
+                    padding-top: 5vw;">
+      <div style="width: 50vw; 
+                        height: 30vw; 
+						margin-left: 8vw;
+                        float: right;
+                        margin-top: 1vw;">
+        <div class="zoom"> <a class="active" href="2.About_Us.html"> <img
+              src="Images/Referenced_Images/Home_Page_Image.1.jpeg" style="width: 70%; height: 80%;"> </a> </div>
+      </div>
+      <div style="width: 36vw; 
+            height: auto; 
+            margin-left: 10vw;
+            text-align: center;
+			margin-top: 3.5vw;">
+        <h2> Hephaestus' Games Studio </h2>
+        <p class="constant_Font"> For over five years, Hephaestus’ Games Studio <br>
+          has worked tirelessly with various other companies <br>
+          and communities in order to Inspire the youth as well <br>
+          as Indie Game Developers to… </p>
+        <div>
+          <button onClick="window.location.href='2.About_Us.html';" class="button button1"> About Us </button>
+        </div>
+      </div>
+    </div>
+
+    <!--What we Offer Section-->
+    <!--What we Offer Container-->
+    <div style="background-color:rgba(45,45,45,0.72);
+					height: 50vw;
+					padding-top: 1vw;
+                    text-align: center;">
+      <h2> What Courses We Offer</h2>
+
+
+      <div class="provided_Content" style="margin-right: 1vw;
+						float: right;
+						 ">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">
+            <img src="Images/Home.Page.Icons/Animation.png" style="border-radius: 1vw 1vw 1vw 1vw;">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+
+            <div class="provided_Courses">
+              <h3 style="margin-top: .3vw;">Animation</h3>
+              <p class="constant_Font" style="margin-top: -1vw;">
+                We provide a basic animation course which helps our team learn how to animate objects within a Three
+                Dimensionsal space.
+                <br>
+                <br>
+                This allows them to rig and animate anything, <br>
+                ranging from <br>
+                characters to spaceships
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="provided_Content" style="margin-right: 5vw;
+						float: right;
+						">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">
+            <img src="Images/Home.Page.Icons/Character.Creation.png" style="border-radius: 1vw 1vw 1vw 1vw;">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+
+            <div class="provided_Courses">
+              <h3 style="margin-top: .01vw;">Character Creation</h3>
+              <p class="constant_Font" style="margin-top: -2vw;">
+                Using applications such as Blender and Z Brush, we train our team to sculpt characters, be it realistic
+                or stylised characters.
+                <br>
+                <br>
+                This could range from human characters to monster-type beings, all directed by the story of the game.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="provided_Content" style="margin-right:8vw;
+						float: right;
+						 ">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">
+            <img src="Images/Home.Page.Icons/3D_Modelling.png" style="border-radius: 1vw 1vw 1vw 1vw;">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+
+            <div class="provided_Courses">
+              <h3 style="margin-top: .1vw;">3D Modelling</h3>
+              <p class="constant_Font" style="margin-top: -1vw;">
+                A basic understanding on how to create 3D Objects such as cars, houses etc which will be used as assets
+                within games.
+                <br>
+                <br>
+                This Skill is invauable to a Game Developer as it allows them to portray the game the way that they
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="provided_Content" style="margin-right: 4.75vw;
+						float: right;
+						 ">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">
+            <img src="Images/Home.Page.Icons/Code.png" style="border-radius: 1vw 1vw 1vw 1vw;">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <div class="provided_Courses">
+              <h3 style="margin-top: .1vw;"> C# Code</h3>
+              <p class="constant_Font" style="margin-top: -1.4vw;">
+                We provide a full basic coures on learning how to use C# in order to create the mechanics for the game,
+                such as interacting with objects.
+                <br>
+                <br>
+                Since we primarily use is Unity's Game Engine, it is important for our developers to learn C# since its
+                the code used in Unity.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="provided_Content" style="margin-left: 1vw;
+						 ">
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">
+            <img src="Images/Home.Page.Icons/GameTheory.png" style="
+	border-radius: 1vw 1vw 1vw 1vw;">
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+
+            <div class="provided_Courses">
+              <h3 style="margin-top: .1vw;">Game Theory</h3>
+              <p class="constant_Font" style="margin-top: -1vw;">
+
+                Game Theory involves anything from Character Story to Level Design.
+                <br>
+                <br>
+                Its Important for an aspiring Game Developer to learn Game Theory because it allows the player to create
+                a proper flow from the beginning of the game until the end and provide full immersion.
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div style="margin-top: 14vw;
+				  margin-right: 3vw;">
+        <button onClick="window.location.href='3.Our_Work.html';" class="button button1"> Our Work </button>
+      </div>
+    </div>
+
+
+    <div style="width: auto; 
+					height: 50vw; 
+					background-color:rgba(50,50,50,0.72);
+					padding-top: 5vw;
+                    margin-bottom: -2.5vw;">
+      <div style="width: 40vw;  
+					margin-right: 5vw;
+					float: right;
+                    padding-top: 5vw;">
+        <h2> CEO Statement </h2>
+        <p class="constant_Font"> <br>
+          Hephaestus’ Game Studio is the advanced Game Development <br>
+          Body in South which promotes practical Game Development <br>
+          creations combined with various other computer-based skills <br>
+          as well as life-long experiences and learning. <br>
+          <br>
+          By following the advice and teaching of lead advanced Gaming <br>
+          Companies such as Ubisoft or Rockstar Games as well as the useful <br>
+          feedback and suggestions of our many reviewers in order to <br>
+          produce the greatest possible products and services. <br>
+          <br>
+          We strive on providing the greatest possible results while keeping our <br>
+          employees’ personal growth and rest in consideration, making <br>
+          Hephaestus’ Games Studio a company which provides everlasting experiences on its members. <br>
+          <br>
+          Zaheer Emeran <br>
+          CEO and Founder of Hephaestus’ Games Studio.
+        </p>
+        <div>
+          <button onClick="window.location.href='4.Photo_Gallery.html';" class="button button1"> Photo Gallery </button>
+        </div>
+      </div>
+      <div style="width: 35vw;
+						margin-left: 14vw;
+						margin-top: 4vw;"> <a class="active" href="4.Photo_Gallery.html">
+          <div class="zoom
+                    "> <img src="Images/Referenced_Images/Home_Page_Image.2.jpeg" style="width: 30vw; height: 40vw;">
+          </div>
+        </a> </div>
+    </div>
+    <div style="width: auto; 
+        height: auto; 
+        background-color:rgba(55,55,55,0.72); 
+        text-align: center;
+        padding-bottom: 5vw;
+				margin-top: 2.5vw;">
+      <h1> Reviews </h1>
+      <div class="slideshow-container">
+        <div class="mySlides fade"> <img src="Images/Reviews/Review.1.png" style="width:100%"> </div>
+        <div class="mySlides fade"> <img src="Images/Reviews/Review.2.png" style="width:100%"> </div>
+        <div class="mySlides fade"> <img src="Images/Reviews/Review.3.png" style="width:100%"> </div>
+        <div class="mySlides fade"> <img src="Images/Reviews/Review.4.png" style="width:100%"> </div>
+        <div class="mySlides fade"> <img src="Images/Reviews/Review.5.png" style="width:100%"> </div>
+      </div>
+      <br>
+      <div style="text-align:center"> <span class="dot" onclick="currentSlide(1)"></span> <span class="dot"
+          onclick="currentSlide(2)"></span> <span class="dot" onclick="currentSlide(3)"></span> <span class="dot"
+          onclick="currentSlide(4)"></span> <span class="dot" onclick="currentSlide(5)"></span> </div>
+      <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = slides.length }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " active";
+        }
+      </script>
+      <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+      </script>
+    </div>
+    <div style="width: auto; 
+                    height: auto; 
+                    background-color:rgba(50,50,50,0.72);
+                    padding-top: 5vw;
+                    text-align: center">
+      <div class="">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSe1yN9DORwMwZl5bYNybEDPkq2w_BtolB-jJYzOPzx4P1DBeQ/viewform?embedded=true"
+          width="1000" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+
+
+
+    </div>
+  </main>
+
+
+  <footer>
+    <div class="copyright_Content">
+      <div class="constant_Font"> &copy; Copyright 2021 WebsiteHoster.com </div>
+      <button onClick="window.location.href='References_And_Links.docx';" class="button button1"> References </button>
+    </div>
+  </footer>
+</body>
+
+</html>
